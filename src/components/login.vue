@@ -1,6 +1,8 @@
 <script setup>
+import { post } from '@/api/http';
 import { ref } from 'vue'
 import { useRouter } from "vue-router"
+import { ElMessage } from "element-plus";
 
 const router = useRouter()
 
@@ -10,12 +12,19 @@ const form = ref({
 })
 
 const login = () => {
-	if (form.value.name == 'abc' && form.value.password == 'abc') {
-		sessionStorage.setItem('userName', form.value.name)
-		router.push('/')
+	if (form.value.name && form.value.password) {
+		post('/login', {
+			name: form.value.name,
+			pwd: form.value.password
+		}).then(res => {
+			if (res.isSuccess) {
+				sessionStorage.setItem('userName', form.value.name)
+				router.push('/')
+			}
+		})
 	}
 	else {
-		alert('error')
+		ElMessage.error('用户名密码不能为空')
 	}
 }
 </script>
