@@ -42,36 +42,20 @@
 </template>
 
 <script setup>
+import { get } from "@/api/http";
 import { ref } from "vue"
 import { useRouter } from "vue-router"
 
 const router = useRouter()
-const tableData = ref([
-	{
-		id: '111',
-		date: '2016-05-03',
-		name: 'Tom',
-		address: 'No. 189, Grove St, Los Angeles',
-	},
-	{
-		id: '222',
-		date: '2016-05-02',
-		name: 'Tom',
-		address: 'No. 189, Grove St, Los Angeles',
-	},
-	{
-		id: '333',
-		date: '2016-05-04',
-		name: 'Tom',
-		address: 'No. 189, Grove St, Los Angeles',
-	},
-	{
-		id: '444',
-		date: '2016-05-01',
-		name: 'Tom',
-		address: 'No. 189, Grove St, Los Angeles',
-	},
-])
+
+// 获取人员列表
+const tableData = ref(null)
+get('/person').then(res => {
+	if (res.isSuccess && res.data) {
+		tableData.value = res.data
+	}
+})
+// 新增人员
 const add = () => {
 	const id = Math.random().toString()
 	tableData.value.push({
@@ -81,11 +65,12 @@ const add = () => {
 		address: '666'
 	})
 }
+// 删除人员
 const remove = (id) => {
 	const index = tableData.value.findIndex(item => item.id === id)
 	tableData.value.splice(index, 1)
 }
-
+// 修改人员弹框
 const dialog = ref({
 	visible: false,
 	id: '',
@@ -103,7 +88,6 @@ const edit = (id) => {
 		dialog.value.address = obj.address
 	}
 }
-
 const sure = () => {
 	const obj = tableData.value.find(item => item.id === dialog.value.id)
 	if (obj) {
