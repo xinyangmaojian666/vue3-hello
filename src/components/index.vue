@@ -4,9 +4,9 @@
 		<el-container>
 			<el-aside width="200px" style="border-right:1px solid red">
 				<ul>
-					<RouterLink to="/home">首页</RouterLink>
-					<RouterLink to="/person">人员列表</RouterLink>
-					<RouterLink to="/car">汽车列表</RouterLink>
+					<li v-for="item in menus" :key="item.name">
+						<RouterLink :to="item.path">{{ item.name }}</RouterLink>
+					</li>
 				</ul>
 			</el-aside>
 			<el-main>
@@ -16,7 +16,7 @@
 	</el-container>
 </template>
 <script setup>
-import { onBeforeMount } from "vue"
+import { onBeforeMount, ref } from "vue"
 import { useRouter } from "vue-router"
 
 const router = useRouter()
@@ -27,5 +27,13 @@ onBeforeMount(() => {
 		router.push('/login')
 	}
 })
+
+const menus = ref([{
+	name: '人员列表',
+	path: '/person'
+}, {
+	name: 'CSS',
+	path: '/css'
+}])
 
 </script>
