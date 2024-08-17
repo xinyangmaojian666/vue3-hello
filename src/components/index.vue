@@ -9,7 +9,7 @@
 					</li>
 				</ul>
 			</el-aside>
-			<el-main>
+			<el-main style="height:calc(100vh - 60px); overflow: auto;">
 				<RouterView></RouterView>
 			</el-main>
 		</el-container>
@@ -28,12 +28,19 @@ onBeforeMount(() => {
 	}
 })
 
-const menus = ref([{
-	name: '人员列表',
-	path: '/person'
-}, {
-	name: 'CSS',
-	path: '/css'
-}])
+const menus = ref([
+	{
+		name: '人员列表',
+		path: '/person'
+	},
+	{
+		name: 'CSS',
+		path: '/css'
+	},
+	{
+		name: 'Novel',
+		path: '/novel'
+	}
+])
 
 </script>
