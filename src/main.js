@@ -12,5 +12,3 @@ if (import.meta.env.MODE === 'development') {
 }
 
 createApp(App).use(router).mount('#app')
-
-
