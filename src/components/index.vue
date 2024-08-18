@@ -1,14 +1,26 @@
 <template>
 	<el-container style="height: 100%;">
-		<el-header style="border-bottom:1px solid red">Header</el-header>
+		<el-header>
+			<h1>想放一个很牛的句子，还没有想到</h1>
+			<el-dropdown placement="bottom" trigger="click" @command="handleCommand">
+				<span>欢迎你，<span class="name">{{ userName }}</span></span>
+				<template #dropdown>
+					<el-dropdown-menu>
+						<el-dropdown-item command="logout">退出</el-dropdown-item>
+					</el-dropdown-menu>
+				</template>
+			</el-dropdown>
+		</el-header>
+
 		<el-container>
-			<el-aside width="200px" style="border-right:1px solid red">
-				<ul>
-					<li v-for="item in menus" :key="item.name">
-						<RouterLink :to="item.path">{{ item.name }}</RouterLink>
-					</li>
-				</ul>
+			<el-aside width=" 200px" style="border-right:1px solid var(--el-border-color)">
+				<el-menu :router="true" default-active="/person">
+					<el-menu-item v-for="menu in menus" :key="menu.name" :index="menu.path">
+						{{ menu.name }}
+					</el-menu-item>
+				</el-menu>
 			</el-aside>
+
 			<el-main style="height:calc(100vh - 60px); overflow: auto;">
 				<RouterView></RouterView>
 			</el-main>
@@ -43,4 +55,29 @@ const menus = ref([
 	}
 ])
 
+// 登录用户
+const userName = ref(sessionStorage.getItem('userName'))
+const handleCommand = () => {
+	sessionStorage.removeItem('userName')
+	router.push('/login')
+}
 </script>
+
+<style lang="scss" scoped>
+:deep(.el-header) {
+	border-bottom: 1px solid var(--el-border-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.name {
+		color: var(--el-color-primary);
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
+:deep(.el-aside .el-menu) {
+	border-right: none;
+}
+</style>

@@ -7,8 +7,8 @@ import { ElMessage } from "element-plus";
 const router = useRouter()
 
 const form = ref({
-	name: '',
-	password: ''
+	name: '正和天下',
+	password: '123456'
 })
 
 const login = () => {
@@ -30,15 +30,39 @@ const login = () => {
 </script>
 
 <template>
-	<el-form :model="form">
-		<el-form-item label="用户名">
-			<el-input v-model="form.name"></el-input>
-		</el-form-item>
-		<el-form-item label="密码">
-			<el-input v-model="form.password"></el-input>
-		</el-form-item>
-		<el-form-item>
-			<el-button @click="login">登录</el-button>
-		</el-form-item>
-	</el-form>
+	<section class="page">
+		<div class="container">
+			<el-form :model="form" label-width="80px">
+				<el-form-item label="用户名">
+					<el-input v-model="form.name"></el-input>
+				</el-form-item>
+				<el-form-item label="密码">
+					<el-input v-model="form.password" type="password"></el-input>
+				</el-form-item>
+				<div style="text-align: right;">
+					<el-button @click="login">登录</el-button>
+				</div>
+			</el-form>
+		</div>
+	</section>
 </template>
+<style lang="scss" scoped>
+.page {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(./assets/login.jpg);
+	background-size: cover;
+
+	.container {
+		background: rgba(255, 255, 255, 0.5);
+		border-radius: 4px;
+		padding: 16px 16px 16px 0px;
+
+		:deep(.el-form-item__label) {
+			color: var(--color-text);
+		}
+	}
+}
+</style>

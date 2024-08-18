@@ -1,5 +1,5 @@
 <template>
-	<header style="border-bottom: 1px solid #333;">
+	<header>
 		<el-button type="primary" @click="add">新增</el-button>
 	</header>
 
