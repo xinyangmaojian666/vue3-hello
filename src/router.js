@@ -1,6 +1,6 @@
 
 import { createRouter, createWebHistory } from "vue-router"
-import Login from "./components/login.vue"
+import Login from "./Login.vue"
 import Index from './components/index.vue'
 import PersonList from "./components/person-list.vue"
 import PersonDetail from "./components/person-detail.vue"
