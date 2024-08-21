@@ -1,7 +1,7 @@
 <template>
 	<el-container style="height: 100%;">
 		<el-header>
-			<h1>想放一个很牛的句子，还没有想到</h1>
+			<h1>想放一个很牛的句子，或励志，或悠闲...</h1>
 			<el-dropdown placement="bottom" trigger="click" @command="handleCommand">
 				<span>欢迎你，<span class="name">{{ userName }}</span></span>
 				<template #dropdown>
