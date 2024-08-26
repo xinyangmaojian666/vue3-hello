@@ -1,11 +1,11 @@
 
 import { createRouter, createWebHistory } from "vue-router"
 import Login from "./Login.vue"
-import Index from './components/index.vue'
-import PersonList from "./components/person-list.vue"
-import PersonDetail from "./components/person-detail.vue"
-import Css from "./components/css.vue"
-import Novel from "./components/novel.vue"
+import Index from './views/index.vue"
+import PersonList from "./views/person/index.vue"
+import PersonDetail from "./views/person/detail.vue"
+import Css from "./views/css/index.vue"
+import Novel from "./views/novel/index.vue"
 
 const routes = [
 	{ path: '/login', component: Login },
