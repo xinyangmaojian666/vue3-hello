@@ -1,5 +1,3 @@
-import { http, HttpResponse } from 'msw'
-import { setupWorker } from 'msw/browser'
 import user from '@/data/user.json'
 
 export const worker = setupWorker(

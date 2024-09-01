@@ -13,15 +13,15 @@ const form = ref({
 
 const login = () => {
 	if (form.value.name && form.value.password) {
-		post('/login', {
-			name: form.value.name,
-			pwd: form.value.password
-		}).then(res => {
-			if (res.isSuccess) {
+		// post('/login', {
+		// 	name: form.value.name,
+		// 	pwd: form.value.password
+		// }).then(res => {
+		// 	if (res.isSuccess) {
 				sessionStorage.setItem('userName', form.value.name)
 				router.push('/')
-			}
-		})
+		// 	}
+		// })
 	}
 	else {
 		ElMessage.error('用户名密码不能为空')
