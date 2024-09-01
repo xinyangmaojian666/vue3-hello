@@ -1,0 +1,22 @@
+[
+  {
+    "id": "01",
+    "name": "人员列表",
+    "path": "/person"
+  },
+  {
+    "id": "02",
+    "name": "人员列表-详情",
+    "path": "/person/:id"
+  },
+  {
+    "id": "03",
+    "name": "CSS",
+    "path": "/css"
+  },
+  {
+    "id": "04",
+    "name": "Novel",
+    "path": "/novel"
+  }
+]

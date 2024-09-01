@@ -1,8 +1,10 @@
 import { http, HttpResponse } from 'msw'
 import { setupWorker } from 'msw/browser'
+import user from '@/data/user.json'
 
 export const worker = setupWorker(
-	http.post('/login', () => {
+	http.post('/login', (p1, p2, p3) => {
+		console.log('66', p1, p2, p3);
 		return HttpResponse.json({ isSuccess: true })
 	}),
 	http.get('/person', () => {

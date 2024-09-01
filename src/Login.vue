@@ -7,7 +7,7 @@ import { ElMessage } from "element-plus";
 const router = useRouter()
 
 const form = ref({
-	name: '正和天下',
+	name: 'aaa',
 	password: '123456'
 })
 

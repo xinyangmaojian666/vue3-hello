@@ -1,7 +1,7 @@
 
 import { createRouter, createWebHistory } from "vue-router"
 import Login from "./Login.vue"
-import Index from './views/index.vue"
+import Index from './views/index.vue'
 import PersonList from "./views/person/index.vue"
 import PersonDetail from "./views/person/detail.vue"
 import Css from "./views/css/index.vue"
@@ -20,7 +20,6 @@ const routes = [
 			{ path: '/novel', component: Novel }
 		]
 	},
-
 ]
 
 export const router = createRouter({
