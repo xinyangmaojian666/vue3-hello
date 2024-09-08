@@ -1,9 +1,20 @@
-
-import axios from "axios"
+import axios from 'axios'
 
 const instance = axios.create({
-	timeout: 60000
+  timeout: 60000,
 })
 
-export const get = instance.get
-export const post = instance.post
+// 添加响应拦截器
+instance.interceptors.response.use(
+  res => {
+    return {
+      isSuccess: res.status === 200,
+      data: res.data,
+    }
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
+
+export const { get, post } = instance
