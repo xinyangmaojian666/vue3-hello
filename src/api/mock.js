@@ -1,5 +1,5 @@
 import { mock } from 'mockjs'
-import users from '../data/users.json'
+import users from '@/data/users'
 
 mock('/login', 'post', options => {
   try {
@@ -12,5 +12,5 @@ mock('/login', 'post', options => {
 })
 
 mock('/person', 'get', () => {
-  return []
+  return users
 })

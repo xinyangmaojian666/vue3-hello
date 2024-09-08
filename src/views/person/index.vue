@@ -6,7 +6,7 @@
   <el-table :data="tableData" style="width: 100%">
     <el-table-column prop="name" label="Name" width="180">
       <template #default="{ row }">
-        <span style="color: blue" @click="gotoDetail(row)">{{ row.name }}</span>
+        <span style="color: blue; cursor: pointer" @click="gotoDetail(row)">{{ row.name }}</span>
       </template>
     </el-table-column>
 

@@ -17,4 +17,5 @@ instance.interceptors.response.use(
   }
 )
 
+// 只暴露指定请求方式
 export const { get, post } = instance
